@@ -1,6 +1,9 @@
 package com.koreait.restproject.rest.controller.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,18 +14,22 @@ import com.koreait.restproject.model.member.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestController 
+@RestController  //Controller에 ResponseBody가 탑재된 컨트롤러 
 @Slf4j
 public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
 	
-
+	//jsp페이지를 반환하지 말고, 데이터를 전송해야함!! 
 	@GetMapping("/member")
-	public String getList() {
-		log.debug("?");
-		return "ha ha ha";
+	public ResponseEntity<List<Member>> getList() {
+		log.debug("Rest 리스트 요청했어?");
+		List<Member> memberList = memberService.selectAll();
+		
+		ResponseEntity<List<Member>> entity=ResponseEntity.ok().body(memberList);
+		
+		return entity;
 	}
 	
 	@PostMapping("/member")
