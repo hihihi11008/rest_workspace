@@ -18,5 +18,4 @@ public class GlobalExceptionHandler {
 		log.debug("일반 요청시 발생하는 예외처리 ");
 		return null;
 	}
-
 }
