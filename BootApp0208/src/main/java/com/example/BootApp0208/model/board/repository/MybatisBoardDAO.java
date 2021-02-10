@@ -1,4 +1,4 @@
-package com.koreait.restproject.model.board.repository;
+package com.example.BootApp0208.model.board.repository;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.koreait.restproject.exception.BoardUpdateException;
-import com.koreait.restproject.model.domain.Board;
+import com.example.BootApp0208.exception.BoardUpdateException;
+import com.example.BootApp0208.model.domain.Board;
 
 @Repository
 public class MybatisBoardDAO implements BoardDAO{
